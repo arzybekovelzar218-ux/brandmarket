@@ -7,7 +7,7 @@ import './index.css'
 // Demo build: open the site with ?reset to wipe changes made during rehearsals
 if (import.meta.env.VITE_MOCK === 'true' && new URLSearchParams(location.search).has('reset')) {
   try {
-    localStorage.removeItem('bm-mock-db-v2')
+    localStorage.removeItem('bm-mock-db-v3')
     localStorage.removeItem('bm-token')
   } catch { /* ignore */ }
   history.replaceState(null, '', location.pathname)

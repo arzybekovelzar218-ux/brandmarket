@@ -7,7 +7,7 @@ import seed from './data.json'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type Any = any
-const KEY = 'bm-mock-db-v2'
+const KEY = 'bm-mock-db-v3'
 const clone = <V,>(v: V): V => JSON.parse(JSON.stringify(v))
 const now = () => new Date().toISOString().slice(0, 23)
 
@@ -36,8 +36,10 @@ function load(): DB {
 /** Seed copy; video files live only on the real backend, so the demo uses animated photos. */
 function fresh(): DB {
   const d = { ...(clone(seed) as Any), seq: 100000 } as DB
-  for (const p of d.products) p.videoUrl = null
-  for (const p of [...d.home.trending, ...d.home.fresh]) p.videoUrl = null
+  // pitch demo: everything purchasable
+  for (const p of d.products) Object.assign(p, { videoUrl: null, stock: Math.max(p.stock, 8 + (p.id % 9)), inStock: true })
+  for (const p of [...d.home.trending, ...d.home.fresh]) Object.assign(p, { videoUrl: null, stock: Math.max(p.stock, 8), inStock: true })
+  for (const c of Object.values(d.perUser)) for (const it of c.cart.items) Object.assign(it.product, { inStock: true })
   return d
 }
 function save() {
