@@ -1,0 +1,1 @@
+var e=[`NEW`,`MATERIALS`,`PRINTING`,`SEWING`,`QUALITY`,`PACKAGING`,`SHIPPING`,`DONE`];export{e as t};

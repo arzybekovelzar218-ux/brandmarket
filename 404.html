@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/brandmarket/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="BrandMarket — launch your clothing brand. We manufacture, deliver and sell." />
+    <title>BrandMarket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      // apply saved/system theme before first paint
+      try {
+        var t = localStorage.getItem('bm-theme');
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = t;
+      } catch (e) { document.documentElement.dataset.theme = 'light'; }
+    </script>
+    <script type="module" crossorigin src="/brandmarket/assets/index-BYMACyg9.js"></script>
+    <link rel="modulepreload" crossorigin href="/brandmarket/assets/axios-BYyouEiy.js">
+    <link rel="modulepreload" crossorigin href="/brandmarket/assets/charts-BDEnAEPd.js">
+    <link rel="modulepreload" crossorigin href="/brandmarket/assets/motion-CSt7kLU1.js">
+    <link rel="modulepreload" crossorigin href="/brandmarket/assets/Img-DmN7NPd4.js">
+    <link rel="modulepreload" crossorigin href="/brandmarket/assets/auth-DE7yDN96.js">
+    <link rel="stylesheet" crossorigin href="/brandmarket/assets/index-CaILAB7Z.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

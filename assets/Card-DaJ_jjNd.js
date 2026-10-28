@@ -1,0 +1,1 @@
+import{n as e}from"./Img-DmN7NPd4.js";import{a as t}from"./motion-CSt7kLU1.js";var n=t();function r({className:t,interactive:r,children:i,...a}){return(0,n.jsx)(`div`,{className:e(`rounded-2xl border border-line bg-surface shadow-soft`,r&&`transition-[transform,box-shadow] duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-lift`,t),...a,children:i})}export{r as t};
