@@ -7,7 +7,7 @@ import seed from './data.json'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type Any = any
-const KEY = 'bm-mock-db-v1'
+const KEY = 'bm-mock-db-v2'
 const clone = <V,>(v: V): V => JSON.parse(JSON.stringify(v))
 const now = () => new Date().toISOString().slice(0, 23)
 
@@ -31,14 +31,21 @@ function load(): DB {
     const raw = localStorage.getItem(KEY)
     if (raw) return JSON.parse(raw)
   } catch { /* fresh copy */ }
-  return { ...(clone(seed) as Any), seq: 100000 }
+  return fresh()
+}
+/** Seed copy; video files live only on the real backend, so the demo uses animated photos. */
+function fresh(): DB {
+  const d = { ...(clone(seed) as Any), seq: 100000 } as DB
+  for (const p of d.products) p.videoUrl = null
+  for (const p of [...d.home.trending, ...d.home.fresh]) p.videoUrl = null
+  return d
 }
 function save() {
   try { localStorage.setItem(KEY, JSON.stringify(db)) } catch { /* quota / private mode: keep in memory */ }
 }
 /** Wipe demo changes (e.g. before a pitch): open the site with ?reset */
 export function resetMockDb() {
-  db = { ...(clone(seed) as Any), seq: 100000 }
+  db = fresh()
   save()
 }
 
