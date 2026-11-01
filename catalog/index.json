@@ -1,0 +1,1223 @@
+{
+ "products": [
+  {
+   "id": 1,
+   "brand": "airu",
+   "name": "AIRU Washed Tee",
+   "garment": "tee",
+   "color": "#6b4f3a",
+   "fabric": "heavy",
+   "length": 1,
+   "layers": [
+    {
+     "what": "AIRU",
+     "finish": "print"
+    },
+    {
+     "what": "AIRU",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "brand": "airu",
+   "name": "AIRU Boxy Hoodie",
+   "garment": "hoodie",
+   "color": "#16130e",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "AIRU",
+     "finish": "puff"
+    },
+    {
+     "what": "BISHKEK",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "brand": "airu",
+   "name": "AIRU Cropped Hoodie",
+   "garment": "hoodie",
+   "color": "#a33b32",
+   "fabric": "fleece",
+   "length": 0.42,
+   "layers": [
+    {
+     "what": "AIRU",
+     "finish": "embroidery"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "brand": "nomad-cloth",
+   "name": "NOMAD Thermal LS",
+   "garment": "long",
+   "color": "#d8cdb8",
+   "fabric": "waffle",
+   "length": 1,
+   "layers": [
+    {
+     "what": "NOMAD",
+     "finish": "embroidery"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "brand": "nomad-cloth",
+   "name": "NOMAD Tapered Pants",
+   "garment": "pants",
+   "color": "#6f6a5c",
+   "fabric": "twill",
+   "length": 1,
+   "layers": [
+    {
+     "what": "NOMAD",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "brand": "steppe",
+   "name": "STEPPE Zip Hoodie",
+   "garment": "zip",
+   "color": "#5d6b4a",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "STEPPE",
+     "finish": "patch"
+    },
+    {
+     "what": "OPEN STEPPE",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "brand": "steppe",
+   "name": "STEPPE Striped Longsleeve",
+   "garment": "long",
+   "color": "#f0ebdd",
+   "fabric": "jersey",
+   "length": 1,
+   "layers": [
+    {
+     "what": "STEPPE",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "brand": "steppe",
+   "name": "STEPPE Thermal LS",
+   "garment": "long",
+   "color": "#b9a37a",
+   "fabric": "waffle",
+   "length": 1,
+   "layers": [
+    {
+     "what": "ring",
+     "finish": "embroidery"
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "brand": "kara",
+   "name": "KARA Layer Longsleeve",
+   "garment": "long",
+   "color": "#121214",
+   "fabric": "heavy",
+   "length": 1,
+   "layers": [
+    {
+     "what": "KARA",
+     "finish": "print"
+    },
+    {
+     "what": "RAW",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "brand": "kara",
+   "name": "KARA Wide Pants",
+   "garment": "pants",
+   "color": "#121214",
+   "fabric": "canvas",
+   "length": 1,
+   "layers": [
+    {
+     "what": "KARA",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "brand": "manas-wear",
+   "name": "MANAS Crew Sweatshirt",
+   "garment": "sweat",
+   "color": "#6b2d1f",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "MANAS",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "brand": "manas-wear",
+   "name": "MANAS Relaxed Pants",
+   "garment": "pants",
+   "color": "#1f2a44",
+   "fabric": "corduroy",
+   "length": 1,
+   "layers": []
+  },
+  {
+   "id": 13,
+   "brand": "manas-wear",
+   "name": "MANAS Heritage Crew",
+   "garment": "sweat",
+   "color": "#d8cdb8",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "MANAS WEAR",
+     "finish": "print"
+    },
+    {
+     "what": "star",
+     "finish": "embroidery"
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "brand": "manas-wear",
+   "name": "MANAS Denim Shorts",
+   "garment": "pants",
+   "color": "#1f2a44",
+   "fabric": "denim",
+   "length": 0.25,
+   "layers": [
+    {
+     "what": "MW",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "brand": "altyn",
+   "name": "ALTYN Crew Sweat",
+   "garment": "sweat",
+   "color": "#0f0e0c",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "ALTYN",
+     "finish": "foil"
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "brand": "altyn",
+   "name": "ALTYN Tailored Pants",
+   "garment": "pants",
+   "color": "#efe6cf",
+   "fabric": "twill",
+   "length": 1,
+   "layers": []
+  },
+  {
+   "id": 17,
+   "brand": "frost",
+   "name": "FROST Colorblock Sweat",
+   "garment": "sweat",
+   "color": "#dfe9f2",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "FROST",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "brand": "frost",
+   "name": "FROST Denim Shorts",
+   "garment": "pants",
+   "color": "#7c9cbf",
+   "fabric": "denim",
+   "length": 0.3,
+   "layers": []
+  },
+  {
+   "id": 19,
+   "brand": "frost",
+   "name": "FROST Graphic Tee",
+   "garment": "tee",
+   "color": "#1f3a5f",
+   "fabric": "jersey",
+   "length": 1,
+   "layers": [
+    {
+     "what": "spark",
+     "finish": "print"
+    },
+    {
+     "what": "FROST",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "brand": "frost",
+   "name": "FROST Boxy Tee",
+   "garment": "tee",
+   "color": "#dfe9f2",
+   "fabric": "heavy",
+   "length": 1,
+   "layers": [
+    {
+     "what": "FROST",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "brand": "yurt",
+   "name": "YURT Classic Tee",
+   "garment": "tee",
+   "color": "#c98a5e",
+   "fabric": "jersey",
+   "length": 1,
+   "layers": [
+    {
+     "what": "yurt",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "brand": "yurt",
+   "name": "YURT Crew Sweatshirt",
+   "garment": "sweat",
+   "color": "#f2e7d5",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "yurt",
+     "finish": "embroidery"
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "brand": "yurt",
+   "name": "YURT Gingham Tee",
+   "garment": "tee",
+   "color": "#f2e7d5",
+   "fabric": "jersey",
+   "length": 1,
+   "layers": []
+  },
+  {
+   "id": 24,
+   "brand": "tamga",
+   "name": "TAMGA Symbol Hoodie",
+   "garment": "hoodie",
+   "color": "#e9dfc9",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "cross",
+     "finish": "embroidery"
+    },
+    {
+     "what": "ring",
+     "finish": "puff"
+    }
+   ]
+  },
+  {
+   "id": 25,
+   "brand": "tamga",
+   "name": "TAMGA Camo Hoodie",
+   "garment": "hoodie",
+   "color": "#2f3d2c",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "TAMGA",
+     "finish": "patch"
+    }
+   ]
+  },
+  {
+   "id": 26,
+   "brand": "edelweiss",
+   "name": "EDELWEISS Crew Sweatshirt",
+   "garment": "sweat",
+   "color": "#e9e6de",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": []
+  },
+  {
+   "id": 27,
+   "brand": "edelweiss",
+   "name": "EDELWEISS Boxy Hoodie",
+   "garment": "hoodie",
+   "color": "#8e9a8b",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "spark",
+     "finish": "embroidery"
+    }
+   ]
+  },
+  {
+   "id": 28,
+   "brand": "edelweiss",
+   "name": "EDELWEISS Linen Crew",
+   "garment": "sweat",
+   "color": "#4a4a42",
+   "fabric": "linen",
+   "length": 1,
+   "layers": []
+  },
+  {
+   "id": 29,
+   "brand": "nomada",
+   "name": "NOMADA Sweat Shorts",
+   "garment": "pants",
+   "color": "#7a5a3c",
+   "fabric": "fleece",
+   "length": 0.3,
+   "layers": [
+    {
+     "what": "NOMADA",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 30,
+   "brand": "nomada",
+   "name": "NOMADA Striped Longsleeve",
+   "garment": "long",
+   "color": "#c9a27a",
+   "fabric": "jersey",
+   "length": 1,
+   "layers": []
+  },
+  {
+   "id": 31,
+   "brand": "nomada",
+   "name": "NOMADA Retro Longsleeve",
+   "garment": "long",
+   "color": "#3e4a3a",
+   "fabric": "heavy",
+   "length": 1,
+   "layers": [
+    {
+     "what": "NOMADA",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 32,
+   "brand": "pik",
+   "name": "PIK Summit Tee",
+   "garment": "tee",
+   "color": "#e2622b",
+   "fabric": "heavy",
+   "length": 1,
+   "layers": [
+    {
+     "what": "bolt",
+     "finish": "print"
+    },
+    {
+     "what": "PIK",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 33,
+   "brand": "pik",
+   "name": "PIK Trail Pants",
+   "garment": "pants",
+   "color": "#1d2a24",
+   "fabric": "canvas",
+   "length": 1,
+   "layers": [
+    {
+     "what": "PIK",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 34,
+   "brand": "pik",
+   "name": "PIK Zip Hoodie",
+   "garment": "zip",
+   "color": "#1d2a24",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "PIK",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 35,
+   "brand": "saadat",
+   "name": "SAADAT Plum Crew",
+   "garment": "sweat",
+   "color": "#5a3a3f",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "SAADAT",
+     "finish": "embroidery"
+    }
+   ]
+  },
+  {
+   "id": 36,
+   "brand": "saadat",
+   "name": "SAADAT Silk Crew",
+   "garment": "sweat",
+   "color": "#efe8dc",
+   "fabric": "satin",
+   "length": 1,
+   "layers": [
+    {
+     "what": "SAADAT",
+     "finish": "foil"
+    }
+   ]
+  },
+  {
+   "id": 37,
+   "brand": "raven",
+   "name": "RAVEN Fleece Crew",
+   "garment": "sweat",
+   "color": "#0c0c0e",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "RAVEN",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 38,
+   "brand": "raven",
+   "name": "RAVEN Dyed Tee",
+   "garment": "tee",
+   "color": "#26262b",
+   "fabric": "heavy",
+   "length": 1,
+   "layers": [
+    {
+     "what": "RAVEN",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 39,
+   "brand": "raven",
+   "name": "RAVEN Graphic Tee",
+   "garment": "tee",
+   "color": "#0c0c0e",
+   "fabric": "heavy",
+   "length": 1,
+   "layers": [
+    {
+     "what": "cross",
+     "finish": "print"
+    },
+    {
+     "what": "NEVERMORE",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 40,
+   "brand": "raven",
+   "name": "RAVEN Raw Tee",
+   "garment": "tee",
+   "color": "#e6e6e6",
+   "fabric": "jersey",
+   "length": 0.6,
+   "layers": [
+    {
+     "what": "RAVEN",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 41,
+   "brand": "sunkar",
+   "name": "SUNKAR Ribbed Longsleeve",
+   "garment": "long",
+   "color": "#1f2a44",
+   "fabric": "rib",
+   "length": 1,
+   "layers": [
+    {
+     "what": "SUNKAR",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 42,
+   "brand": "sunkar",
+   "name": "SUNKAR Track Shorts",
+   "garment": "pants",
+   "color": "#f5f3ee",
+   "fabric": "canvas",
+   "length": 0.2,
+   "layers": []
+  },
+  {
+   "id": 43,
+   "brand": "sunkar",
+   "name": "SUNKAR Falcon Longsleeve",
+   "garment": "long",
+   "color": "#f5f3ee",
+   "fabric": "jersey",
+   "length": 1,
+   "layers": [
+    {
+     "what": "FALCON",
+     "finish": "print"
+    },
+    {
+     "what": "SUNKAR",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 44,
+   "brand": "lume",
+   "name": "LUME Classic Tee",
+   "garment": "tee",
+   "color": "#e0a8c0",
+   "fabric": "jersey",
+   "length": 1,
+   "layers": [
+    {
+     "what": "lume",
+     "finish": "print"
+    },
+    {
+     "what": "heart",
+     "finish": "puff"
+    }
+   ]
+  },
+  {
+   "id": 45,
+   "brand": "lume",
+   "name": "LUME Dyed Hoodie",
+   "garment": "hoodie",
+   "color": "#b7a6e8",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "lume",
+     "finish": "puff"
+    }
+   ]
+  },
+  {
+   "id": 46,
+   "brand": "lume",
+   "name": "LUME Crew Sweatshirt",
+   "garment": "sweat",
+   "color": "#7fd6c9",
+   "fabric": "fleece",
+   "length": 1,
+   "layers": [
+    {
+     "what": "LUME 2000",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 47,
+   "brand": "lume",
+   "name": "LUME Cropped Hoodie",
+   "garment": "hoodie",
+   "color": "#f4e36b",
+   "fabric": "fleece",
+   "length": 0.42,
+   "layers": [
+    {
+     "what": "lume",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 48,
+   "brand": "saadat",
+   "name": "SAADAT Silk Shirt",
+   "garment": "shirt",
+   "color": "#efe8dc",
+   "fabric": "satin",
+   "length": 1,
+   "type": "Shirt",
+   "price": 4200,
+   "layers": [
+    {
+     "what": "S",
+     "finish": "foil"
+    }
+   ]
+  },
+  {
+   "id": 49,
+   "brand": "altyn",
+   "name": "ALTYN Black Shirt",
+   "garment": "shirt",
+   "color": "#0f0e0c",
+   "fabric": "twill",
+   "length": 1,
+   "type": "Shirt",
+   "price": 3900,
+   "layers": [
+    {
+     "what": "ALTYN",
+     "finish": "foil"
+    }
+   ]
+  },
+  {
+   "id": 50,
+   "brand": "nomad-cloth",
+   "name": "NOMAD Linen Shirt",
+   "garment": "shirt",
+   "color": "#d8cdb8",
+   "fabric": "linen",
+   "length": 1,
+   "type": "Shirt",
+   "price": 2900,
+   "layers": []
+  },
+  {
+   "id": 51,
+   "brand": "tamga",
+   "name": "TAMGA Check Overshirt",
+   "garment": "shirt",
+   "color": "#2f3d2c",
+   "fabric": "canvas",
+   "length": 1,
+   "type": "Shirt",
+   "price": 3400,
+   "layers": []
+  },
+  {
+   "id": 52,
+   "brand": "yurt",
+   "name": "YURT Gingham Shirt",
+   "garment": "shortshirt",
+   "color": "#f2e7d5",
+   "fabric": "linen",
+   "length": 1,
+   "type": "Shirt",
+   "price": 2300,
+   "layers": []
+  },
+  {
+   "id": 53,
+   "brand": "sunkar",
+   "name": "SUNKAR Resort Shirt",
+   "garment": "shortshirt",
+   "color": "#1f2a44",
+   "fabric": "satin",
+   "length": 1,
+   "type": "Shirt",
+   "price": 3100,
+   "layers": []
+  },
+  {
+   "id": 54,
+   "brand": "lume",
+   "name": "LUME Bowling Shirt",
+   "garment": "shortshirt",
+   "color": "#e0a8c0",
+   "fabric": "twill",
+   "length": 1,
+   "type": "Shirt",
+   "price": 2700,
+   "layers": [
+    {
+     "what": "lume",
+     "finish": "print"
+    },
+    {
+     "what": "lume",
+     "finish": "embroidery"
+    }
+   ]
+  },
+  {
+   "id": 55,
+   "brand": "frost",
+   "name": "FROST Pique Polo",
+   "garment": "polo",
+   "color": "#dfe9f2",
+   "fabric": "pique",
+   "length": 1,
+   "type": "Polo",
+   "price": 2200,
+   "layers": [
+    {
+     "what": "FROST",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 56,
+   "brand": "altyn",
+   "name": "ALTYN Knit Polo",
+   "garment": "polo",
+   "color": "#0f0e0c",
+   "fabric": "waffle",
+   "length": 1,
+   "type": "Polo",
+   "price": 3300,
+   "layers": [
+    {
+     "what": "spark",
+     "finish": "foil"
+    }
+   ]
+  },
+  {
+   "id": 57,
+   "brand": "edelweiss",
+   "name": "EDELWEISS Polo",
+   "garment": "polo",
+   "color": "#8e9a8b",
+   "fabric": "pique",
+   "length": 1,
+   "type": "Polo",
+   "price": 2500,
+   "layers": [
+    {
+     "what": "spark",
+     "finish": "embroidery"
+    }
+   ]
+  },
+  {
+   "id": 58,
+   "brand": "pik",
+   "name": "PIK Field Jacket",
+   "garment": "workjacket",
+   "color": "#1d2a24",
+   "fabric": "canvas",
+   "length": 1,
+   "type": "Jacket",
+   "price": 5200,
+   "layers": [
+    {
+     "what": "PIK",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 59,
+   "brand": "steppe",
+   "name": "STEPPE Chore Jacket",
+   "garment": "workjacket",
+   "color": "#b9a37a",
+   "fabric": "canvas",
+   "length": 1,
+   "type": "Jacket",
+   "price": 4800,
+   "layers": [
+    {
+     "what": "OPEN STEPPE",
+     "finish": "patch"
+    }
+   ]
+  },
+  {
+   "id": 60,
+   "brand": "raven",
+   "name": "RAVEN Denim Jacket",
+   "garment": "workjacket",
+   "color": "#26262b",
+   "fabric": "denim",
+   "length": 1,
+   "type": "Jacket",
+   "price": 5400,
+   "layers": [
+    {
+     "what": "RAVEN",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 61,
+   "brand": "airu",
+   "name": "AIRU Varsity",
+   "garment": "varsity",
+   "color": "#16130e",
+   "fabric": "fleece",
+   "length": 1,
+   "type": "Jacket",
+   "price": 6200,
+   "layers": [
+    {
+     "what": "A",
+     "finish": "patch"
+    },
+    {
+     "what": "AIRU",
+     "finish": "patch"
+    }
+   ]
+  },
+  {
+   "id": 62,
+   "brand": "manas-wear",
+   "name": "MANAS Varsity",
+   "garment": "varsity",
+   "color": "#6b2d1f",
+   "fabric": "fleece",
+   "length": 1,
+   "type": "Jacket",
+   "price": 5900,
+   "layers": [
+    {
+     "what": "M",
+     "finish": "patch"
+    },
+    {
+     "what": "MANAS",
+     "finish": "patch"
+    }
+   ]
+  },
+  {
+   "id": 63,
+   "brand": "kara",
+   "name": "KARA Satin Bomber",
+   "garment": "varsity",
+   "color": "#121214",
+   "fabric": "satin",
+   "length": 1,
+   "type": "Jacket",
+   "price": 5600,
+   "layers": [
+    {
+     "what": "KARA",
+     "finish": "embroidery"
+    }
+   ]
+  },
+  {
+   "id": 64,
+   "brand": "saadat",
+   "name": "SAADAT Plum Blazer",
+   "garment": "blazer",
+   "color": "#5a3a3f",
+   "fabric": "twill",
+   "length": 1,
+   "type": "Blazer",
+   "price": 7200,
+   "layers": []
+  },
+  {
+   "id": 65,
+   "brand": "altyn",
+   "name": "ALTYN Tuxedo Blazer",
+   "garment": "blazer",
+   "color": "#0f0e0c",
+   "fabric": "twill",
+   "length": 1,
+   "type": "Blazer",
+   "price": 8900,
+   "layers": []
+  },
+  {
+   "id": 66,
+   "brand": "nomada",
+   "name": "NOMADA Corduroy Blazer",
+   "garment": "blazer",
+   "color": "#7a5a3c",
+   "fabric": "corduroy",
+   "length": 1,
+   "type": "Blazer",
+   "price": 6400,
+   "layers": []
+  },
+  {
+   "id": 67,
+   "brand": "nomad-cloth",
+   "name": "NOMAD Utility Vest",
+   "garment": "vest",
+   "color": "#6f6a5c",
+   "fabric": "canvas",
+   "length": 1,
+   "type": "Vest",
+   "price": 2800,
+   "layers": []
+  },
+  {
+   "id": 68,
+   "brand": "yurt",
+   "name": "YURT Waffle Vest",
+   "garment": "vest",
+   "color": "#c98a5e",
+   "fabric": "waffle",
+   "length": 1,
+   "type": "Vest",
+   "price": 2600,
+   "layers": []
+  },
+  {
+   "id": 69,
+   "brand": "lume",
+   "name": "LUME Pleated Skirt",
+   "garment": "skirt",
+   "color": "#b7a6e8",
+   "fabric": "satin",
+   "length": 1,
+   "type": "Skirt",
+   "price": 2900,
+   "layers": []
+  },
+  {
+   "id": 70,
+   "brand": "kara",
+   "name": "KARA Plaid Skirt",
+   "garment": "skirt",
+   "color": "#121214",
+   "fabric": "twill",
+   "length": 1,
+   "type": "Skirt",
+   "price": 3100,
+   "layers": []
+  },
+  {
+   "id": 71,
+   "brand": "edelweiss",
+   "name": "EDELWEISS Pleated Skirt",
+   "garment": "skirt",
+   "color": "#e9e6de",
+   "fabric": "linen",
+   "length": 1,
+   "type": "Skirt",
+   "price": 2700,
+   "layers": []
+  },
+  {
+   "id": 72,
+   "brand": "airu",
+   "name": "AIRU Baggy Jeans",
+   "garment": "jeans",
+   "color": "#1f2a44",
+   "fabric": "denim",
+   "length": 1,
+   "type": "Jeans",
+   "price": 4100,
+   "layers": [
+    {
+     "what": "AIRU",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 73,
+   "brand": "raven",
+   "name": "RAVEN Black Baggy Jeans",
+   "garment": "jeans",
+   "color": "#0c0c0e",
+   "fabric": "denim",
+   "length": 1,
+   "type": "Jeans",
+   "price": 4300,
+   "layers": [
+    {
+     "what": "RAVEN",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 74,
+   "brand": "frost",
+   "name": "FROST Light Wash Jeans",
+   "garment": "slimjeans",
+   "color": "#7c9cbf",
+   "fabric": "denim",
+   "length": 1,
+   "type": "Jeans",
+   "price": 3600,
+   "layers": []
+  },
+  {
+   "id": 75,
+   "brand": "sunkar",
+   "name": "SUNKAR Slim Jeans",
+   "garment": "slimjeans",
+   "color": "#1f2a44",
+   "fabric": "denim",
+   "length": 1,
+   "type": "Jeans",
+   "price": 3700,
+   "layers": []
+  },
+  {
+   "id": 76,
+   "brand": "pik",
+   "name": "PIK Cargo Pants",
+   "garment": "cargo",
+   "color": "#1d2a24",
+   "fabric": "canvas",
+   "length": 1,
+   "type": "Pants",
+   "price": 3800,
+   "layers": [
+    {
+     "what": "PIK",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 77,
+   "brand": "tamga",
+   "name": "TAMGA Camo Cargo",
+   "garment": "cargo",
+   "color": "#2f3d2c",
+   "fabric": "canvas",
+   "length": 1,
+   "type": "Pants",
+   "price": 4000,
+   "layers": []
+  },
+  {
+   "id": 78,
+   "brand": "kara",
+   "name": "KARA Cargo Pants",
+   "garment": "cargo",
+   "color": "#121214",
+   "fabric": "canvas",
+   "length": 1,
+   "type": "Pants",
+   "price": 3900,
+   "layers": [
+    {
+     "what": "KARA",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 79,
+   "brand": "steppe",
+   "name": "STEPPE Sweat Shorts",
+   "garment": "shorts",
+   "color": "#5d6b4a",
+   "fabric": "fleece",
+   "length": 1,
+   "type": "Shorts",
+   "price": 1900,
+   "layers": [
+    {
+     "what": "STEPPE",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 80,
+   "brand": "lume",
+   "name": "LUME Terry Shorts",
+   "garment": "shorts",
+   "color": "#f4e36b",
+   "fabric": "fleece",
+   "length": 1,
+   "type": "Shorts",
+   "price": 2100,
+   "layers": [
+    {
+     "what": "lume",
+     "finish": "print"
+    }
+   ]
+  },
+  {
+   "id": 81,
+   "brand": "manas-wear",
+   "name": "MANAS Fleece Shorts",
+   "garment": "shorts",
+   "color": "#6b2d1f",
+   "fabric": "fleece",
+   "length": 1,
+   "type": "Shorts",
+   "price": 2000,
+   "layers": []
+  }
+ ]
+}
