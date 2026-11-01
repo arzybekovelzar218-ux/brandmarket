@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronDown, ChevronRight, Minus, Plus, RotateCcw, Ruler, Share2, Sparkles, Truck } from 'lucide-react'
-import { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { ChevronDown, ChevronRight, Minus, Move3D, Plus, RotateCcw, Ruler, Share2, Sparkles, Truck } from 'lucide-react'
+import { lazy, Suspense, useEffect, useState } from 'react'
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { api } from '../api/api'
 import type { Product } from '../api/types'
 import { HeartButton, ProductCard, ProductCardSkeleton, useSave } from '../components/ProductCard'
@@ -20,6 +20,9 @@ import { ease, fadeUp, stagger } from '../lib/motion'
 import { useGate } from '../lib/useGate'
 import { useCart } from '../store/cart'
 import { toast } from '../store/toast'
+import { designRef } from '../studio/productDesign'
+
+const Garment3D = lazy(() => import('../components/Garment3D'))
 
 export default function ProductPage() {
   const id = Number(useParams().id)
@@ -88,7 +91,14 @@ export default function ProductPage() {
 }
 
 function Detail({ p }: { p: Product }) {
+  const ref3d = designRef(p.images)
+  const [params] = useSearchParams()
   const [img, setImg] = useState(0)
+  const [show3d, setShow3d] = useState(!!ref3d && params.get('view') === '3d')
+  const pickImage = (i: number) => {
+    setShow3d(false)
+    setImg(i)
+  }
   const [size, setSize] = useState<string | null>(p.sizes.length === 1 ? p.sizes[0] : null)
   const [color, setColor] = useState<string | null>(p.colors[0] ?? null)
   const [qty, setQty] = useState(1)
@@ -127,17 +137,30 @@ function Detail({ p }: { p: Product }) {
   return (
     <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,1fr)] lg:gap-16 xl:gap-20">
       {/* Gallery */}
-      <div className="flex flex-col-reverse gap-3 md:flex-row md:gap-4">
-        {p.images.length > 1 && (
+      <div className="flex flex-col-reverse gap-3 md:flex-row md:items-start md:gap-4 lg:sticky lg:top-24 lg:self-start">
+        {(p.images.length > 1 || ref3d) && (
           <div className="no-scrollbar flex gap-2.5 overflow-x-auto md:w-[76px] md:shrink-0 md:flex-col">
+            {ref3d && (
+              <button
+                onClick={() => setShow3d(true)}
+                aria-label="View in 3D"
+                aria-pressed={show3d}
+                className={cn(
+                  'flex aspect-[3/4] w-16 shrink-0 flex-col items-center justify-center gap-1 rounded-lg bg-ink text-[11px] font-semibold text-ink-fg transition-all md:w-full',
+                  show3d && 'ring-2 ring-fg ring-offset-2 ring-offset-bg',
+                )}
+              >
+                <Move3D className="size-5" /> 3D
+              </button>
+            )}
             {p.images.map((src, i) => (
               <button
                 key={src + i}
-                onClick={() => setImg(i)}
+                onClick={() => pickImage(i)}
                 aria-label={`Photo ${i + 1}`}
                 className={cn(
                   'aspect-[3/4] w-16 shrink-0 overflow-hidden rounded-lg transition-all md:w-full',
-                  img === i ? 'ring-2 ring-fg ring-offset-2 ring-offset-bg' : 'opacity-60 hover:opacity-100',
+                  !show3d && img === i ? 'ring-2 ring-fg ring-offset-2 ring-offset-bg' : 'opacity-60 hover:opacity-100',
                 )}
               >
                 <Img src={src} className="size-full object-cover" />
@@ -145,14 +168,30 @@ function Detail({ p }: { p: Product }) {
             ))}
           </div>
         )}
-        <div className="relative aspect-[3/4] flex-1 overflow-hidden rounded-2xl bg-surface-2">
+        <div className="relative aspect-[3/4] w-full flex-1 overflow-hidden rounded-2xl bg-surface-2">
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.div key={img} initial={{ opacity: 0, scale: 1.03 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease }} className="absolute inset-0">
               <Img src={p.images[img]} alt={p.name} className="size-full object-cover" />
             </motion.div>
           </AnimatePresence>
-          {p.badges.includes('NEW') && <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-black backdrop-blur">New</span>}
-          {p.images.length > 1 && (
+          {show3d && ref3d && (
+            <Suspense fallback={null}>
+              <Garment3D
+                designRef={ref3d}
+                onFail={() => {
+                  setShow3d(false)
+                  toast('Could not load the 3D view', { tone: 'error' })
+                }}
+              />
+            </Suspense>
+          )}
+          {ref3d && !show3d && (
+            <button onClick={() => setShow3d(true)} className="absolute bottom-4 right-4 flex h-10 items-center gap-2 rounded-full bg-black px-4 text-[13px] font-semibold text-white shadow-lift transition-opacity hover:opacity-85">
+              <Move3D className="size-4" /> View in 3D
+            </button>
+          )}
+          {!show3d && p.badges.includes('NEW') && <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-black backdrop-blur">New</span>}
+          {p.images.length > 1 && !show3d && !ref3d && (
             <div className="absolute inset-x-0 bottom-4 flex justify-center gap-1.5 md:hidden">
               {p.images.map((_, i) => <span key={i} className={cn('h-1.5 rounded-full bg-white transition-all', i === img ? 'w-5' : 'w-1.5 opacity-60')} />)}
             </div>

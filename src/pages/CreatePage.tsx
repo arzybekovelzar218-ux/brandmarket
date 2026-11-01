@@ -1,5 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { Box, Check, ImagePlus, Layers, Loader2, Palette, Plus, RotateCw, Send, Sparkles, Type, X } from 'lucide-react'
+import { Box, Check, ImagePlus, Layers, Loader2, Palette, Send, Shirt, Sparkles, Type, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { api } from '../api/api'
@@ -15,12 +14,13 @@ import { Verified } from '../components/ui/Verified'
 import { Page } from '../layout/AppShell'
 import { cn } from '../lib/cn'
 import { money } from '../lib/format'
-import { ease } from '../lib/motion'
 import { useAuth } from '../store/auth'
+import { usePendingDesign } from '../store/pendingDesign'
+import { withDesign } from '../studio/productDesign'
 import { toast } from '../store/toast'
 
 const STYLES = ['Streetwear', 'Minimalism', 'Casual', 'Luxury', 'Sport', 'Vintage', 'Grunge', 'Y2K']
-const TYPES = ['Hoodie', 'T-Shirt', 'Sweatshirt', 'Longsleeve', 'Pants', 'Shorts']
+const TYPES = ['Hoodie', 'T-Shirt', 'Sweatshirt', 'Longsleeve', 'Shirt', 'Polo', 'Jacket', 'Blazer', 'Vest', 'Pants', 'Jeans', 'Shorts', 'Skirt']
 const SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
 const SWATCHES = ['#16130e', '#f5f3ee', '#8a8a86', '#6b4f3a', '#2f3d2c', '#1f2a44', '#b8963e', '#a33b32']
 
@@ -80,6 +80,7 @@ function BrandForm() {
   const [busy, setBusy] = useState(false)
   const refresh = useAuth((s) => s.refresh)
   const navigate = useNavigate()
+  const hasDesign = usePendingDesign((s) => !!s.design)
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -88,7 +89,7 @@ function BrandForm() {
       const b = await api.createBrand({ ...f, logo: f.logo || undefined, banner: f.banner || undefined })
       await refresh()
       toast(`${b.name} is live`)
-      navigate(`/b/${b.slug}`)
+      navigate(hasDesign ? '/create' : `/b/${b.slug}`)
     } catch (err) {
       toast(errorMessage(err, 'Could not create brand'), { tone: 'error' })
       setBusy(false)
@@ -98,6 +99,7 @@ function BrandForm() {
   return (
     <div className="grid gap-10 lg:grid-cols-[1fr_440px] lg:gap-16">
       <form onSubmit={submit} className="space-y-8">
+        <PendingNote brandless />
         <Input id="bn" label="Brand name" placeholder="e.g. SAKURA STUDIO" value={f.name} maxLength={40} onChange={(e) => setF({ ...f, name: e.target.value })} required />
         <label className="block space-y-2">
           <span className="text-[13px] font-medium text-fg-2">What's it about?</span>
@@ -166,7 +168,20 @@ function DropForm({ brands }: { brands: BrandMini[] }) {
   const [f, setF] = useState({ name: '', description: '', price: '', type: 'Hoodie', sizes: ['S', 'M', 'L', 'XL'], colors: ['#16130e'], stock: '20', images: [] as string[] })
   const [busy, setBusy] = useState(false)
   const navigate = useNavigate()
+  const pending = usePendingDesign((s) => s.design)
+  const clearPending = usePendingDesign((s) => s.set)
   const brand = brands.find((b) => b.id === brandId)!
+  // A design finished in 3D Studio pre-fills the form; photos added by hand are kept.
+  useEffect(() => {
+    if (!pending) return
+    setF((s) => ({
+      ...s,
+      type: pending.type,
+      colors: pending.colors,
+      description: s.description || pending.description,
+      images: [...pending.images, ...s.images.filter((i) => !pending.images.includes(i))].slice(0, 5),
+    }))
+  }, [pending])
   const toggle = <T,>(list: T[], v: T) => (list.includes(v) ? list.filter((x) => x !== v) : [...list, v])
 
   const submit = async (e: React.FormEvent) => {
@@ -174,9 +189,10 @@ function DropForm({ brands }: { brands: BrandMini[] }) {
     if (!f.images.length) return toast('Add at least one photo', { tone: 'error' })
     setBusy(true)
     try {
-      const p = await api.addProduct(brandId, { ...f, price: Number(f.price), stock: Number(f.stock) })
+      const p = await api.addProduct(brandId, { ...f, images: withDesign(f.images, pending?.designRef, pending?.sound), price: Number(f.price), stock: Number(f.stock) })
+      clearPending(null)
       toast('Your drop is live')
-      navigate(`/p/${p.id}`)
+      navigate(pending?.designRef ? `/p/${p.id}?view=3d` : `/p/${p.id}`)
     } catch (err) {
       toast(errorMessage(err, 'Could not publish'), { tone: 'error' })
       setBusy(false)
@@ -186,6 +202,7 @@ function DropForm({ brands }: { brands: BrandMini[] }) {
   return (
     <div className="grid gap-10 lg:grid-cols-[1fr_380px] lg:gap-16">
       <form onSubmit={submit} className="space-y-8">
+        <PendingNote />
         {brands.length > 1 && (
           <div className="flex flex-wrap gap-2">
             {brands.map((b) => (
@@ -205,6 +222,9 @@ function DropForm({ brands }: { brands: BrandMini[] }) {
               </div>
             ))}
             {f.images.length < 5 && <Upload onChange={(url) => setF((s) => ({ ...s, images: [...s.images, url] }))} label="Add photo" className="aspect-[3/4]" />}
+            {f.images.length < 5 && (
+              <Link to="/create/studio" className="flex aspect-[3/4] flex-col items-center justify-center gap-1.5 rounded-2xl bg-ink text-center text-[12px] font-medium text-ink-fg transition-opacity hover:opacity-90"><Box className="size-5" /> Design in 3D</Link>
+            )}
           </div>
         </div>
         <div className="grid gap-4 sm:grid-cols-[1fr_160px]">
@@ -231,7 +251,7 @@ function DropForm({ brands }: { brands: BrandMini[] }) {
           <div>
             <p className="mb-3 text-[13px] font-medium text-fg-2">Colors</p>
             <div className="flex flex-wrap gap-2">
-              {SWATCHES.map((c) => (
+              {[...new Set([...SWATCHES, ...f.colors])].map((c) => (
                 <button type="button" key={c} aria-label={c} onClick={() => setF({ ...f, colors: toggle(f.colors, c) })} className={cn('grid size-9 place-items-center rounded-full ring-offset-2 ring-offset-bg', f.colors.includes(c) ? 'ring-2 ring-fg' : 'ring-1 ring-line-strong')} style={{ background: c }}>
                   {f.colors.includes(c) && <Check className={cn('size-4', c === '#f5f3ee' ? 'text-black' : 'text-white')} strokeWidth={3} />}
                 </button>
@@ -266,77 +286,58 @@ function DropForm({ brands }: { brands: BrandMini[] }) {
   )
 }
 
-/** 3D configurator teaser — honest "in development" state until a production-grade garment model is ready. */
+/** Entry point to the 3D editor, with a real render from it. */
 function Studio3D() {
-  const [tick, setTick] = useState(0)
-  useEffect(() => {
-    const t = setInterval(() => setTick((n) => n + 1), 2600)
-    return () => clearInterval(t)
-  }, [])
-  const PREVIEW = [1, 6, 4, 5]
-  const color = SWATCHES[PREVIEW[tick % PREVIEW.length]]
-
   return (
     <section className="mt-24">
       <div className="relative overflow-hidden rounded-3xl bg-[#0d0c0a] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(700px_400px_at_75%_40%,rgba(201,165,77,0.18),transparent_70%)]" />
         <div className="relative grid gap-10 p-7 sm:p-10 lg:grid-cols-[1fr_1.1fr] lg:p-14">
           <div className="flex flex-col">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-gold">
-              <span className="relative flex size-2"><span className="absolute inline-flex size-full animate-ping rounded-full bg-gold opacity-60" /><span className="relative inline-flex size-2 rounded-full bg-gold" /></span>
-              In development
-            </span>
-            <h2 className="mt-6 text-[34px] font-bold leading-[1.05] sm:text-[44px]">3D Studio</h2>
+            <h2 className="text-[34px] font-bold leading-[1.05] sm:text-[44px]">3D Studio</h2>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/65">
-              Design your hoodie on a photoreal 3D model: rotate it, pick fabric and color, place prints and embroidery — and send the exact spec straight to the factory.
+              Design on cloth-simulated 3D garments: recolor every panel, swap fabrics, place prints and embroidery right on the folds, change the fit — then send it to your drop with rendered photos.
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {[
-                [RotateCw, '360° photoreal preview'],
-                [Palette, 'Fabric & color library'],
-                [Type, 'Prints, text & embroidery'],
-                [Layers, 'Tech pack for the factory'],
+                [Shirt, '18 garment models'],
+                [Palette, '13 fabrics, any color'],
+                [Type, 'Text, logos, 5 print techniques'],
+                [Layers, 'Factory tech pack'],
               ].map(([Icon, t]) => {
-                const I = Icon as typeof Box
+                const I = Icon as typeof Shirt
                 return (
                   <li key={t as string} className="flex items-center gap-3 text-[14px] text-white/80">
-                    <span className="grid size-9 place-items-center rounded-xl bg-white/8 ring-1 ring-white/10"><I className="size-4 text-gold" /></span>
+                    <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-white/8 ring-1 ring-white/10"><I className="size-4 text-gold" /></span>
                     {t as string}
                   </li>
                 )
               })}
             </ul>
             <div className="mt-auto pt-10">
-              <Button variant="primary" onClick={() => toast("You're on the list — we'll tell you when 3D Studio opens")}><Plus className="size-4" /> Get early access</Button>
+              <Link to="/create/studio" className="inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 text-[14px] font-semibold text-black transition-opacity hover:opacity-90"><Box className="size-4" /> Open 3D Studio</Link>
             </div>
           </div>
-
-          {/* Preview window — a placeholder UI, clearly not the real 3D editor */}
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]">
-            <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
-              {[0, 1, 2].map((i) => <span key={i} className="size-2.5 rounded-full bg-white/15" />)}
-              <span className="ml-3 text-[12px] text-white/40">studio.brandmarket — hoodie_v1</span>
-            </div>
-            <div className="relative grid aspect-[4/3] place-items-center">
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:32px_32px]" />
-              <AnimatePresence mode="wait">
-                <motion.svg key={color} viewBox="0 0 200 200" className="relative w-[46%] drop-shadow-[0_30px_40px_rgba(0,0,0,0.5)]" initial={{ opacity: 0, rotateY: -40 }} animate={{ opacity: 1, rotateY: 0 }} exit={{ opacity: 0, rotateY: 40 }} transition={{ duration: 0.8, ease }}>
-                  <path d="M70 30c6 12 18 18 30 18s24-6 30-18l34 16 22 54-24 10-8-20v86H46V90l-8 20-24-10 22-54z" fill={color} stroke="rgba(255,255,255,0.18)" strokeWidth="1.5" />
-                  <path d="M70 30c4 22 16 34 30 34s26-12 30-34" fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth="1.5" />
-                  <path d="M76 140h48v22H76z" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" rx="4" />
-                  <text x="100" y="112" textAnchor="middle" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="14" fill={color === SWATCHES[1] ? 'rgba(0,0,0,0.7)' : 'rgba(255,255,255,0.8)'}>YOUR LOGO</text>
-                </motion.svg>
-              </AnimatePresence>
-              <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 rounded-full bg-black/50 p-1.5 ring-1 ring-white/10 backdrop-blur">
-                {PREVIEW.map((i) => <span key={i} className={cn('size-6 rounded-full ring-2', SWATCHES[i] === color ? 'ring-gold' : 'ring-transparent')} style={{ background: SWATCHES[i] }} />)}
-              </div>
-              <div className="absolute inset-0 grid place-items-center bg-black/0">
-                <span className="absolute right-4 top-4 rounded-full bg-black/60 px-3 py-1 text-[11px] font-medium text-white/70 ring-1 ring-white/10">Concept preview</span>
-              </div>
-            </div>
-          </div>
+          <Link to="/create/studio" aria-label="Open 3D Studio" className="relative block aspect-[4/3] overflow-hidden rounded-2xl bg-[#e9e3d7]">
+            <img src={`${import.meta.env.BASE_URL}studio/preview.jpg`} alt="A T-shirt being edited in 3D Studio" loading="lazy" className="size-full object-cover" />
+          </Link>
         </div>
       </div>
     </section>
+  )
+}
+
+/** Shown on both forms: start from a 3D design, or see the one waiting to be published. */
+function PendingNote({ brandless }: { brandless?: boolean }) {
+  const pending = usePendingDesign((s) => s.design)
+  const clear = usePendingDesign((s) => s.set)
+  if (!pending) return null
+  return (
+    <div className="mb-8 flex items-center gap-4 rounded-xl border border-gold/40 bg-gold-soft p-3">
+      <Img src={pending.images[0]} className="size-14 rounded-lg object-cover" />
+      <p className="min-w-0 flex-1 text-[13px] leading-relaxed text-fg-2">
+        {brandless ? `Your ${pending.type.toLowerCase()} design is saved. Launch your brand and it moves straight into your first drop.` : `Your ${pending.type.toLowerCase()} design and its renders are in this drop. Shoppers will be able to rotate it in 3D.`}
+      </p>
+      <button type="button" aria-label="Discard 3D design" onClick={() => clear(null)} className="grid size-8 shrink-0 place-items-center rounded-full text-muted hover:bg-surface-2"><X className="size-4" /></button>
+    </div>
   )
 }

@@ -9,6 +9,7 @@ import { money } from '../lib/format'
 import { useGate } from '../lib/useGate'
 import { useAuth } from '../store/auth'
 import { toast } from '../store/toast'
+import { designRef } from '../studio/productDesign'
 import { Img } from './ui/Img'
 import { Skeleton } from './ui/Skeleton'
 import { MiniRating } from './ui/Stars'
@@ -85,6 +86,9 @@ export function ProductCard({ product: p, className }: { product: Product; class
         <div className="absolute inset-0 scale-[1.04] opacity-0 transition-[opacity,transform] duration-700 ease-out-expo group-hover:scale-100 group-hover:opacity-100">
           <Img src={p.images[1] ?? p.images[0]} alt="" className="size-full object-cover" />
         </div>
+        {designRef(p.images) && (
+          <span className="absolute bottom-2.5 left-2.5 rounded-full bg-black/80 px-2 py-[3px] text-[10px] font-semibold uppercase tracking-[0.1em] text-white backdrop-blur">3D</span>
+        )}
         {badge && (
           <span
             className={cn(

@@ -11,14 +11,14 @@ import { ease, fadeUp, stagger } from '../lib/motion'
 import { useAuth } from '../store/auth'
 
 const COVERS: Record<string, string> = {
-  Streetwear: 'https://images.pexels.com/photos/30257619/pexels-photo-30257619.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop',
-  Minimalism: 'https://images.pexels.com/photos/16037829/pexels-photo-16037829.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop',
-  Casual: 'https://images.pexels.com/photos/9558898/pexels-photo-9558898.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop',
-  Luxury: 'https://images.pexels.com/photos/32286461/pexels-photo-32286461.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop',
-  Sport: 'https://images.pexels.com/photos/37056544/pexels-photo-37056544.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop',
-  Vintage: 'https://images.pexels.com/photos/7389008/pexels-photo-7389008.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop',
-  Grunge: 'https://images.pexels.com/photos/10024021/pexels-photo-10024021.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop',
-  Y2K: 'https://images.pexels.com/photos/18556218/pexels-photo-18556218.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop',
+  Streetwear: '/catalog/2-front.webp',
+  Minimalism: '/catalog/27-front.webp',
+  Casual: '/catalog/6-front.webp',
+  Luxury: '/catalog/15-front.webp',
+  Sport: '/catalog/32-front.webp',
+  Vintage: '/catalog/30-front.webp',
+  Grunge: '/catalog/37-front.webp',
+  Y2K: '/catalog/45-front.webp',
 }
 
 export default function OnboardingPage() {

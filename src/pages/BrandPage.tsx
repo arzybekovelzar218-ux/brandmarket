@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Calendar, Grid3x3, Heart, MessageCircle, Share2, Star, Trophy } from 'lucide-react'
+import { Calendar, Grid3x3, Heart, MessageCircle, Play, Share2, Star, Trophy } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { api } from '../api/api'
@@ -116,6 +116,7 @@ export default function BrandPage() {
             <Button variant="outline" disabled={!brand} onClick={gate(() => toast(`Message sent to ${brand?.name} — they usually reply within a day`))}>
               <MessageCircle className="size-4" /> Message
             </Button>
+            {brand && <Link to={`/feed?brand=${brand.slug}`} className="inline-flex h-11 items-center gap-2 rounded-full border border-line-strong bg-surface px-5 text-sm font-medium transition-colors hover:border-fg/30 hover:bg-surface-2"><Play className="size-4" /> Reel</Link>}
             <Button variant="outline" size="icon" aria-label="Share" onClick={share}><Share2 className="size-[18px]" /></Button>
           </div>
         </div>

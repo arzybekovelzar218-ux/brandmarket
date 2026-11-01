@@ -156,8 +156,8 @@ export default function AuthPage({ mode }: { mode: 'login' | 'register' }) {
       <div className="relative hidden overflow-hidden bg-ink lg:block">
         <div className="absolute inset-0 grid grid-cols-2 gap-3 p-3">
           {[
-            ['https://images.pexels.com/photos/16551234/pexels-photo-16551234.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop', 'https://images.pexels.com/photos/30257619/pexels-photo-30257619.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop'],
-            ['https://images.pexels.com/photos/9558567/pexels-photo-9558567.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop', 'https://images.pexels.com/photos/5365474/pexels-photo-5365474.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop'],
+            ['/catalog/25-three.webp', '/catalog/19-three.webp'],
+            ['/catalog/45-three.webp', '/catalog/9-three.webp'],
           ].map((col, c) => (
             <div key={c} className={cn('flex flex-col gap-3', c ? 'translate-y-[8%]' : '-translate-y-[4%]')}>
               {col.map((src, i) => (

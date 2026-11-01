@@ -178,6 +178,36 @@
   }
 }
 
+/* Feed: giant brand type drifting behind the garment, sound bars, one-time hint */
+@keyframes feed-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes feed-eq {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@keyframes feed-hint {
+  0%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [class*='animate-[feed-'] {
+    animation: none !important;
+  }
+}
+
 /* Shimmer for skeletons */
 @keyframes shimmer {
   100% {

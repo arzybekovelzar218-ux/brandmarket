@@ -7,7 +7,7 @@ import seed from './data.json'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type Any = any
-const KEY = 'bm-mock-db-v3'
+const KEY = 'bm-mock-db-v5'
 const clone = <V,>(v: V): V => JSON.parse(JSON.stringify(v))
 const now = () => new Date().toISOString().slice(0, 23)
 
@@ -489,13 +489,14 @@ const readFile = (f: Blob) =>
 /** Downscale uploads so localStorage can hold them. */
 async function shrink(file: Blob): Promise<string> {
   const src = await readFile(file)
+  if ((file as File).name?.endsWith('.bm3d.png')) return src // its pixels are data: must stay byte-exact
   try {
     const img = await new Promise<HTMLImageElement>((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src })
     const k = Math.min(1, 900 / Math.max(img.width, img.height))
     const cv = document.createElement('canvas')
     cv.width = Math.round(img.width * k); cv.height = Math.round(img.height * k)
     cv.getContext('2d')!.drawImage(img, 0, 0, cv.width, cv.height)
-    return cv.toDataURL('image/jpeg', 0.82)
+    return file.type === 'image/png' ? cv.toDataURL('image/png') : cv.toDataURL('image/jpeg', 0.82)
   } catch {
     return src
   }

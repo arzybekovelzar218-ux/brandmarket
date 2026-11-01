@@ -17,13 +17,14 @@ export default defineConfig({
   server: { port: 5173, proxy },
   preview: { port: 4173, proxy },
   build: {
-    chunkSizeWarningLimit: 900,
+    chunkSizeWarningLimit: 1100,
     rollupOptions: {
       output: {
         manualChunks(id) {
           if (id.includes('recharts') || id.includes('d3-') || id.includes('victory')) return 'charts'
           if (id.includes('framer-motion') || id.includes('motion-dom') || id.includes('motion-utils')) return 'motion'
           if (id.includes('@dnd-kit')) return 'dnd'
+          if (id.includes('node_modules/three')) return 'three'
         },
       },
     },

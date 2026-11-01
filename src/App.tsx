@@ -19,6 +19,7 @@ const DashboardPage = lazy(() => import('./pages/DashboardPage'))
 const FactoryPage = lazy(() => import('./pages/FactoryPage'))
 const AdminPage = lazy(() => import('./pages/AdminPage'))
 const CreatePage = lazy(() => import('./pages/CreatePage'))
+const StudioPage = lazy(() => import('./pages/StudioPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 /** /account → your own public profile. */
@@ -53,6 +54,7 @@ export default function App() {
         <Route path="/login" element={<AuthPage mode="login" />} />
         <Route path="/register" element={<AuthPage mode="register" />} />
         <Route path="/welcome" element={<RequireAuth><OnboardingPage /></RequireAuth>} />
+        <Route path="/create/studio" element={<RequireAuth><StudioPage /></RequireAuth>} />
         <Route element={<AppShell />}>
           <Route index element={<HomePage />} />
           <Route path="feed" element={<FeedPage />} />

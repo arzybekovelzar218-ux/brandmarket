@@ -8,4 +8,9 @@ export const API_ORIGIN = ((import.meta.env.VITE_API_URL as string | undefined) 
 /** Absolute link to an in-app page, respecting a sub-path deploy (GitHub Pages). */
 export const pageUrl = (path: string) => location.origin + import.meta.env.BASE_URL.replace(/\/$/, '') + path
 
-export const media = (src?: string | null) => (src && src.startsWith('/') && !src.startsWith('//') ? API_ORIGIN + src : src ?? undefined)
+export const media = (src?: string | null) => {
+  if (!src) return src ?? undefined
+  // The seeded catalogue ships with the frontend, not the API.
+  if (src.startsWith('/catalog/')) return import.meta.env.BASE_URL + src.slice(1)
+  return src.startsWith('/') && !src.startsWith('//') ? API_ORIGIN + src : src
+}
